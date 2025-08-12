@@ -56,6 +56,9 @@ RUN apt update
 RUN apt dist-upgrade -y
 RUN rosdep update
 
+# Copy the my_moveit_py package to the workspace
+COPY my_moveit_py /root/interbotix_ws/src/my_moveit_py
+
 # Rebuild the workspace with the moveit2 fork
 RUN bash -c "source /opt/ros/humble/setup.bash && colcon build \
     --cmake-args -DCMAKE_BUILD_TYPE=Release \
