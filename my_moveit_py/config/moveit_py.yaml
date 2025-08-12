@@ -1,0 +1,17 @@
+moveit_py:
+  ros__parameters:
+    planning_scene_monitor_options:
+      name: "planning_scene_monitor"
+      robot_description: "robot_description"
+      joint_state_topic: "/wx200/joint_states"   # change wx200 if your robot_name differs
+      wait_for_initial_state_timeout: 10.0
+
+    planning_pipelines:
+      pipeline_names: ["ompl"]
+
+    plan_request_params:
+      planning_pipeline: "ompl"
+      planning_attempts: 1
+      planning_time: 2.0
+      max_velocity_scaling_factor: 1.0
+      max_acceleration_scaling_factor: 1.0
